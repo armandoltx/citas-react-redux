@@ -9,11 +9,30 @@ const AgregarCita = () => {
   const [ hora, guardarHora ] = useState('');
   const [ sintomas, guardarSintomas ] = useState('');
 
+  //Cuando el formulario es enviado
+  const submitNuevaCita = e => {
+    // prevetn default
+    e.preventDefault();
+
+    // Validar el formulario
+
+    // Crear nueva Cita y almacenar en el state
+    //===
+    // Para ello hay q agregar una nueva accion en la carpeta "actions"
+    // hay q tener en cuenta que las acciones y los reducer estan muy relacionados.
+    // en el reducer tenemos un => case 'AGREGAR_CITA' la accion q realiza (action.payload) viene de citasActions
+    // tienen q tener 'AGREGAR_CITA' tb para unirse
+    // una vez creada la cita, se llama a la accion y esta llama al reducer
+    // el payload de agregarCitaAction va a ser la nueva cita (action.payload)
+
+    // Reiniciar el formulario
+  }
+
   return (
     <div className="card mt-5">
       <div className="card-body">
         <h2 className="card-title text-center mb-5">Agrega las citas aqui</h2>
-        <form>
+        <form onSubmit={submitNuevaCita}>
           <div className="form-group row">
             <label className="col-sm-4 col-lg-2 col-form-label">Nombre Mascota</label>
             <div className="col-sm-8 col-lg-10">

@@ -46,6 +46,11 @@ const AgregarCita = () => {
     });
 
     // Reiniciar el formulario
+    guardarMascota('');
+    guardarPropietario('');
+    guardarFecha('');
+    guardarHora('');
+    guardarSintomas('');
   }
 
   return (

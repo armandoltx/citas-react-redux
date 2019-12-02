@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux'; // es lo q nos permite ejecutar las acciones y los reducers, es lo q los va a mandar llamar. Es con el dispatch donde se decide en q momento se comunican las acciones y los reducers.
+import { useDispatch, useSelector } from 'react-redux'; // es lo q nos permite ejecutar las acciones y los reducers, es lo q los va a mandar llamar. Es con el dispatch donde se decide en q momento se comunican las acciones y los reducers.
 import { agregarCitaAction } from '../actions/citasActions';
 import { validarFormularioAction } from '../actions/validarActions';
 import uuid from 'uuid/v4';
@@ -21,6 +21,11 @@ const AgregarCita = () => {
   const dispatch = useDispatch();
   const agregarNuevaCita = (cita) => dispatch( agregarCitaAction(cita) );
   const validarFormulario = (estado) => dispatch( validarFormularioAction(estado) );
+
+  // PAra acceder al state usamos ==> useSelector que es similar a mapStateToProps en Hooks
+  // creamos una funcion con useSelector, pasamos el state y accedemos al que queremos, en este caso al error
+  const error = useSelector( (state) => state.error );
+  console.log("error ", error);
 
 
   //Cuando el formulario es enviado
@@ -131,6 +136,7 @@ const AgregarCita = () => {
             </div>
           </div>
         </form>
+        { error.error ? <div className="alert alert-danger text-center p2">Todos los campos son obligatorios.</div> : null }
       </div>
     </div>
   );

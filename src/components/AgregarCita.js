@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'; // es lo q nos permite ejecutar las acciones y los reducers, es lo q los va a mandar llamar. Es con el dispatch donde se decide en q momento se comunican las acciones y los reducers.
 import { agregarCitaAction } from '../actions/citasActions';
+import { validarFormularioAction } from '../actions/validarActions';
 import uuid from 'uuid/v4';
+
 
 const AgregarCita = () => {
 
@@ -17,7 +19,8 @@ const AgregarCita = () => {
   // es lo q los va a mandar llamar.
   // Es con el dispatch donde se decide en q momento se comunican las acciones y los reducers.
   const dispatch = useDispatch();
-  const agregarNuevaCita = (cita) => dispatch(agregarCitaAction(cita))
+  const agregarNuevaCita = (cita) => dispatch( agregarCitaAction(cita) );
+  const validarFormulario = (estado) => dispatch( validarFormularioAction(estado) );
 
 
   //Cuando el formulario es enviado
@@ -26,6 +29,13 @@ const AgregarCita = () => {
     e.preventDefault();
 
     // Validar el formulario
+
+    if(mascota.trim() === '' || propietario.trim() === '' || fecha.trim() === '' || hora.trim() === '' || sintomas.trim() === '') {
+      validarFormulario(true);
+      return
+    }
+
+    validarFormulario(false);
 
     // Crear nueva Cita y almacenar en el state
     //===

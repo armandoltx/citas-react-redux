@@ -25,7 +25,7 @@ const AgregarCita = () => {
   // PAra acceder al state usamos ==> useSelector que es similar a mapStateToProps en Hooks
   // creamos una funcion con useSelector, pasamos el state y accedemos al que queremos, en este caso al error
   const error = useSelector( (state) => state.error );
-  console.log("error ", error);
+  // console.log("error ", error);
 
 
   //Cuando el formulario es enviado

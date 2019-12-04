@@ -5,3 +5,10 @@ export const agregarCitaAction = (cita) => {  // cita es lo q espera el payload 
     // los datos que pasamos del formulario pasan a esta accion y de esta accion al reducer, los agrega al state y actualiza el state
   }
 }
+
+export const borrarCitaAction = (id) => {//el payload o lo q va a cambiar el state es el Id, borraremos la cita dependiendo del ID
+  return {
+    type: 'BORRAR_CITA',
+    payload: id
+  }
+}

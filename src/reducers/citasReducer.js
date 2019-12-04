@@ -13,6 +13,15 @@ export default function(state= initialState, action) {
         ...state,
         citas: [...state.citas, action.payload] // action.payload es la cita nueva
       }
+
+    case 'BORRAR_CITA':
+      return {
+        ...state,
+        citas: state.citas.filter(cita => cita.id !== action.payload)
+        // con filter queremos retornar las citas que no sean las del payload, q esa es la q queremos borrar
+      }
+
+
     default:
       return state;
   }

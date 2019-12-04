@@ -1,5 +1,7 @@
 import React from 'react';
 import AgregarCita from './components/AgregarCita';
+import ListadoCitas from './components/ListadoCitas';
+
 // REDUX  se importa el store en el app para que el STATE y todas las ACCIONES esten disponible dentro de todos los componenetes de la aplicacion.
 import store from './store';
 import { Provider } from 'react-redux';
@@ -16,7 +18,9 @@ function App() {
           <div className="col-md-6">
             <AgregarCita />
           </div>
-          <div className="col-md-6">Listado Aqui</div>
+          <div className="col-md-6">
+            <ListadoCitas />
+          </div>
         </div>
       </div>
     </Provider>
